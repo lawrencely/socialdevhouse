@@ -33,7 +33,11 @@ gem 'bcrypt', '~> 3.1.7'
 # bootstrap
 gem 'bootstrap', '~> 4.0'
 
-# annotate route file 
+gem 'sprockets-rails'
+
+gem 'jquery-rails'
+
+# annotate route file
 gem 'annotate'
 
 # Use Capistrano for deployment
