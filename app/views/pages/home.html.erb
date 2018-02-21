@@ -1,1 +1,5 @@
-hello world
+<% if @current_user.present? %>
+  Hello <%= @current_user.name %>
+<% else %>
+  Hi you are not logged in
+<% end %>
