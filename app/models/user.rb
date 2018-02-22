@@ -12,5 +12,6 @@
 
 class User < ApplicationRecord
   has_secure_password
-  has_one :account 
+  has_one :account
+  has_many :briefs
 end
