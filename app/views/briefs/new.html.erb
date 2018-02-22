@@ -1,0 +1,37 @@
+<div class="form-group">
+  <h1>Project Briefing Survey</h1>
+  <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
+      <br><h3>Client Questionnaire</h3>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Company Name:</br> <%= f.text_field :company, class: "form-control" %> </p>
+    <p> Contact Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+      <br><h3>About your company</h3>
+    <p> About Your Company:</br> <%= f.text_field :about_your_company, class: "form-control" %> </p>
+    <p> Target Audience:</br> <%= f.text_field :target_audience, class: "form-control" %> </p>
+    <p> Competitors:</br> <%= f.text_field :competitors, class: "form-control" %> </p>
+    <p> Project Purpose:</br> <%= f.text_field :project_purpose, class: "form-control" %> </p>
+    <p> Existing Site:</br> <%= f.text_field :existing_site, class: "form-control" %> </p>
+      <br><h3>Design Preference</h3>
+    <p> Colour Scheme:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+
+
+    <%= check_box_tag(:pet_dog) %>
+    <%= label_tag(:pet_dog, "I own a dog") %>
+    <%= check_box_tag(:pet_cat) %>
+    <%= label_tag(:pet_cat, "I own a cat") %>
+
+    <%= f.submit :Signup, class: "btn btn-primary" %>
+  <% end %>
+</div>
