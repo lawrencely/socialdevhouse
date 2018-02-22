@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   # Where the login form POSTs data
   def create
-    user = User.where(:name => params[:username]).first
+    user = User.where(:email => params[:username]).first
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path

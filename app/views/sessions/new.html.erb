@@ -17,4 +17,11 @@
   <div class="form-group">
     <%= submit_tag 'Login', class: "btn btn-primary" %>
   </div>
+  <% if @user.errors.any? %>
+      <ul class="Signup_Errors">
+        <% for message_error in @user.errors.full_messages %>
+          <li>* <%= message_error %></li>
+        <% end %>
+      </ul>
+  <% end %>
 <% end %>
