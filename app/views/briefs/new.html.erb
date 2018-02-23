@@ -1,37 +1,37 @@
-<div class="form-group">
-  <h1>Project Briefing Survey</h1>
-  <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
-      <br><h3>Client Questionnaire</h3>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Company Name:</br> <%= f.text_field :company, class: "form-control" %> </p>
-    <p> Contact Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-      <br><h3>About your company</h3>
-    <p> About Your Company:</br> <%= f.text_field :about_your_company, class: "form-control" %> </p>
-    <p> Target Audience:</br> <%= f.text_field :target_audience, class: "form-control" %> </p>
-    <p> Competitors:</br> <%= f.text_field :competitors, class: "form-control" %> </p>
-    <p> Project Purpose:</br> <%= f.text_field :project_purpose, class: "form-control" %> </p>
-    <p> Existing Site:</br> <%= f.text_field :existing_site, class: "form-control" %> </p>
-      <br><h3>Design Preference</h3>
-    <p> Colour Scheme:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-    <p> Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-    <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-
-
-    <%= check_box_tag(:pet_dog) %>
-    <%= label_tag(:pet_dog, "I own a dog") %>
-    <%= check_box_tag(:pet_cat) %>
-    <%= label_tag(:pet_cat, "I own a cat") %>
-
-    <%= f.submit :Signup, class: "btn btn-primary" %>
-  <% end %>
+<div class="container" >
+  <div class="form-group">
+    <h1>Project Briefing Survey</h1>
+    <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
+        <br><h3>Client Questionnaire</h3>
+        <section>
+          <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+          <p> Company Name:</br> <%= f.text_field :company, class: "form-control" %> </p>
+          <p> Contact Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+        </section>
+        <br><h3>About your company</h3>
+      <p> About Your Company:</br> <%= f.text_field :about_your_company, class: "form-control" %> </p>
+      <p> Target Audience:</br> <%= f.text_field :target_audience, class: "form-control" %> </p>
+      <p> Competitors:</br> <%= f.text_field :competitors, class: "form-control" %> </p>
+      <p> Project Purpose:</br> <%= f.text_field :project_purpose, class: "form-control" %> </p>
+      <p> Existing Site:</br> <%= f.text_field :existing_site, class: "form-control" %> </p>
+        <br><h3>Design Preference</h3>
+      <p> Colour Scheme:</br> <%= f.text_field :colour_scheme, class: "form-control" %> </p>
+      <p> Font Preference:</br> <%= f.text_field :font_preference, class: "form-control" %> </p>
+      <p> complexity:</br> <%= f.text_field :complexity, class: "form-control" %> </p>
+      <p> Look and Feel:</br> <%= f.text_field :look_and_feel, class: "form-control" %> </p>
+      <p> Additional Ideas:</br> <%= f.text_field :additional_ideas, class: "form-control" %> </p>
+        <br><h3>Design examples</h3>
+      <p> </br> <%= f.text_field :design_examples_follow_1, class: "form-control" %> </p>
+      <p> </br> <%= f.text_field :design_examples_follow_2, class: "form-control" %> </p>
+      <p> </br> <%= f.text_field :design_examples_follow_3, class: "form-control" %> </p>
+        <br>
+      <p> </br> <%= f.text_field :design_examples_reject_1, class: "form-control" %> </p>
+      <p> </br> <%= f.text_field :design_examples_reject_2, class: "form-control" %> </p>
+      <p> </br> <%= f.text_field :design_examples_reject_3, class: "form-control" %> </p>
+        <br><h3>Additional Info</h3>
+      <p> Additional Information</br> <%= f.text_field :additional_info, class: "form-control" %> </p>
+      <p> Referral:</br> <%= f.text_field :referral_code, class: "form-control" %> </p>
+      <%= f.submit :submit, class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
