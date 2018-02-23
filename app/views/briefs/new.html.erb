@@ -1,37 +1,112 @@
-<div class="container" >
-  <div class="form-group">
-    <h1>Project Briefing Survey</h1>
-    <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
-        <br><h3>Client Questionnaire</h3>
-        <section>
-          <p> Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
-          <p> Company Name:</br> <%= f.text_field :company, class: "form-control" %> </p>
-          <p> Contact Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
-        </section>
-        <br><h3>About your company</h3>
-      <p> About Your Company:</br> <%= f.text_field :about_your_company, class: "form-control" %> </p>
-      <p> Target Audience:</br> <%= f.text_field :target_audience, class: "form-control" %> </p>
-      <p> Competitors:</br> <%= f.text_field :competitors, class: "form-control" %> </p>
-      <p> Project Purpose:</br> <%= f.text_field :project_purpose, class: "form-control" %> </p>
-      <p> Existing Site:</br> <%= f.text_field :existing_site, class: "form-control" %> </p>
-        <br><h3>Design Preference</h3>
-      <p> Colour Scheme:</br> <%= f.text_field :colour_scheme, class: "form-control" %> </p>
-      <p> Font Preference:</br> <%= f.text_field :font_preference, class: "form-control" %> </p>
-      <p> complexity:</br> <%= f.text_field :complexity, class: "form-control" %> </p>
-      <p> Look and Feel:</br> <%= f.text_field :look_and_feel, class: "form-control" %> </p>
-      <p> Additional Ideas:</br> <%= f.text_field :additional_ideas, class: "form-control" %> </p>
-        <br><h3>Design examples</h3>
-      <p> </br> <%= f.text_field :design_examples_follow_1, class: "form-control" %> </p>
-      <p> </br> <%= f.text_field :design_examples_follow_2, class: "form-control" %> </p>
-      <p> </br> <%= f.text_field :design_examples_follow_3, class: "form-control" %> </p>
-        <br>
-      <p> </br> <%= f.text_field :design_examples_reject_1, class: "form-control" %> </p>
-      <p> </br> <%= f.text_field :design_examples_reject_2, class: "form-control" %> </p>
-      <p> </br> <%= f.text_field :design_examples_reject_3, class: "form-control" %> </p>
-        <br><h3>Additional Info</h3>
-      <p> Additional Information</br> <%= f.text_field :additional_info, class: "form-control" %> </p>
-      <p> Referral:</br> <%= f.text_field :referral_code, class: "form-control" %> </p>
-      <%= f.submit :submit, class: "btn btn-primary" %>
-    <% end %>
+<br>
+  <div class="container" >
+    <div class="form-group">
+      <h1>Project Briefing Survey</h1>
+      <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
+          <br><h3>Client Questionnaire</h3>
+          <section>
+            <p> Your Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
+            <p> Your Company Name:</br> <%= f.text_field :company, class: "form-control" %> </p>
+            <p> Your Contact Email:</br> <%= f.text_field :email, class: "form-control" %> </p>
+          </section>
+          <br><h3>About your company</h3>
+        <p> Tell us a little bit about your company</br> <%= f.text_area :about_your_company, class: "medium form-control", autofocus: true, placeholder: "We want to get an understanding of where your company is at now, what you're trying to achieve and what your main priorities are." %> </p>
+        <p> Who is your target audience?</br> <%= f.text_area :target_audience, class: "medium form-control", autofocus: true, placeholder: "Every company has an ideal client. The more you can tell us about them, the better your website will perform. Start with age, gender, location, lifestyle, likes and dislikes. From there, include anything else you think might be relevant."  %> </p>
+        <p> Who are your competitors:</br> <%= f.text_field :competitors, class: "form-control", placeholder: "Mention who your competitors are, and also how you are different to them. What is your unique selling point?" %> </p>
+        <p> What is the goal of this website?</br> <%= f.text_field :project_purpose, class: "medium form-control", autofocus: true, placeholder:"If this is your first website, explain what you hope to achieve with it, for example: an increase in sales or to further your brand. If you already have a website, you can mention the strengths and weaknesses of your current website." %> </p>
+        <p> Do you have an existing website?</br> <%= f.text_field :existing_site, class: "medium form-control", autofocus: true, placeholder:"https://" %> </p>
+          <br><h3>Design Style Preference</h3>
+        <p> What is your color scheme preference?</br> <%= f.text_field :colour_scheme, class: "medium form-control", autofocus: true, placeholder:"Please mention if your company already has an established color scheme, or if you have a color in mind for the website, and any colors to avoid." %> </p>
+        <p> What style of font would you prefer your site to use?</br> <%= f.text_field :font_preference, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p> What is your design complexity preference?<em>Websites can range from very minimalist, to very detailed and complex designs. Please tick your preference below:</em> </br> <%= f.text_field :complexity, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p> What look and feel do you want your website to have?</br> <%= f.text_field :look_and_feel, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p> Additional Ideas:</br> <%= f.text_field :additional_ideas, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+          <br><h3>Design examples</h3>
+        <p><%= f.text_field :design_examples_follow_1, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p><%= f.text_field :design_examples_follow_2, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p><%= f.text_field :design_examples_follow_3, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+          <br>
+        <p><%= f.text_field :design_examples_reject_1, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p><%= f.text_field :design_examples_reject_2, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+        <p><%= f.text_field :design_examples_reject_3, class: "medium form-control", autofocus: true, placeholder:"" %> </p>
+          <br><h3>Additional Info</h3>
+        <p> Additional Information</br> <%= f.text_field :additional_info, class: "form-control" %> </p>
+        <p> Referral:</br> <%= f.text_field :referral_code, class: "form-control" %> </p>
+        <%= f.submit :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
-</div>
+
+  <h4><span>7.</span>What style of font would you prefer your site to use? <input type='hidden' name='data[font-preference][0]' value='What style of font would you prefer your site to use?' /></h4>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.bottomBox').on('click', function(){
+      console.log('is this working');
+      $('.bottomBox').addClass('cell2').removeClass('cell1');
+
+    });
+  });
+</script>
+
+
+
+  <!-- <script type="text/javascript">
+  $(document).ready(function(){
+    var changedDiv;
+
+    function changeBG(theNode){
+
+    if (changedDiv){
+      changedDiv.className = "font-choice";
+    } else {
+      var selectedDiv = document.getElementById("active-choice");
+      if (selectedDiv) {
+        selectedDiv.className = "font-choice";
+      }
+    }
+
+    theNode.className = "active-choice";
+    changedDiv=theNode;
+    }
+
+  });
+
+  </script> -->
+
+  <!--Font Choice-->
+  <div class="font-choice bottomBox cell1">
+    <span style="display:none"><input type="radio" class="cell1" name="data[font-preference][1]" id="serif" value="serif" ></span>
+    <label for="serif" style="font-family: Georgia, Times, Serif;">Serif</label>
+  </div>
+
+  <!--Font Choice-->
+  <div class="font-choice">
+    <input type="radio" name="data[font-preference][1]" id="sans-serif" value="sans-serif" onclick="changeBG(this.parentNode)" >
+    <label for="sans-serif" style="font-family: Arial, sans-serif;">Sans Serif</label>
+  </div>
+
+  <!--Font Choice-->
+  <div class="font-choice">
+    <input type="radio" name="data[font-preference][1]" id="script" value="script" onclick="changeBG(this.parentNode)" >
+    <label for="script" style="font-family: 'Pinyon Script', cursive; font-size: 24px;">Script</label>
+  </div>
+
+  <!--Font Choice-->
+  <div class="font-choice">
+    <input type="radio" name="data[font-preference][1]" id="geometric" value="geometric" onclick="changeBG(this.parentNode)" >
+    <label for="geometric" style="font-family: 'Century Gothic' Futura, 'Questrial', sans-serif;">Geometric</label>
+  </div>
+
+  <!--Font Choice-->
+  <div class="font-choice">
+    <input type="radio" name="data[font-preference][1]" id="grunge" value="grunge" onclick="changeBG(this.parentNode)" >
+    <label for="grunge" style="font-family: 'Special Elite';">Grunge</label>
+  </div>
+
+  <!--Font Choice-->
+  <div class="font-choice">
+    <input type="radio" name="data[font-preference][1]" id="other" value="other" onclick="changeBG(this.parentNode)" >
+    <label for="other" style="font-family: Arial, sans-serif;">Other..</label>
+  </div>
+
+  <input type="text" placeholder="If other, please specify:"><input type="hidden" name="data[font-preference-other][0]" value="" />
