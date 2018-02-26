@@ -52,8 +52,9 @@
 			<section>
 				<h3>Design Style Preference</h3>
 
-				<h4><span>6.</span>What is your color scheme preference? <input type='hidden' name='data[color-scheme][0]' value='What is your color scheme preference?' /></h4>
-				<textarea class="small" name="data[color-scheme][1]" placeholder="Please mention if your company already has an established color scheme, or if you have a color in mind for the website, and any colors to avoid."></textarea>
+				<!-- <h4><span>6.</span>What is your color scheme preference? <input type='hidden' name='data[color-scheme][0]' value='What is your color scheme preference?' /></h4>
+				<textarea class="small" name="data[color-scheme][1]" placeholder="Please mention if your company already has an established color scheme, or if you have a color in mind for the website, and any colors to avoid."></textarea> -->
+        <h4><span>6.</span>What is your color scheme preference?</h4> <%= f.text_area :colour_scheme, class: "small", autofocus: true, placeholder:"Please mention if your company already has an established color scheme, or if you have a color in mind for the website, and any colors to avoid." %>
 
 				<h4><span>7.</span>What style of font would you prefer your site to use? <input type='hidden' name='data[font-preference][0]' value='What style of font would you prefer your site to use?' /></h4>
 
@@ -83,8 +84,10 @@
 
 					<!--Font Choice-->
 					<div class="font-choice">
-						<input type="radio" name="data[font-preference][1]" id="serif" value="serif" onclick="changeBG(this.parentNode)" >
-						<label for="serif" style="font-family: Georgia, Times, Serif;">Serif</label>
+						<!-- <input type="radio" name="data[font-preference][1]" id="serif" value="serif" onclick="changeBG(this.parentNode)" >
+						<label for="serif" style="font-family: Georgia, Times, Serif;">Serif</label> -->
+            <%= radio_button_tag(:font_preference, "Serif")%>
+            <%= label_tag(:font_preference, "Serif", style: "font-family: Georgia, Times, Serif;") %>
 					</div>
 
 					<!--Font Choice-->
@@ -257,8 +260,9 @@ Rails
           <br><h3>Additional Info</h3>
         <p> Additional Information</br> <%= f.text_field :additional_info, class: "form-control" %> </p>
         <p> Referral:</br> <%= f.text_field :referral_code, class: "form-control" %> </p>
-        <%= f.submit :submit, class: "btn btn-primary" %>
-      <% end %>
+        <%= f.submit :submit, class: "btn btn-primary" %> -->
+        <% end %>
+
     </div>
   </div>
 
