@@ -2,16 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function(){
-  $('.bottomBox').on('click', function(){
-    console.log('is this working');
-    $('bottomBox').addClass('cell2').removeClass('cell1');
-
-  });
-});
-  // $(Document).ready(function(){
+// $(document).ready(function(){
+//   $('.font-choice').on('click', function(){
+//     console.log('is this working');
+//     $('.font-choice').addClass('active-choice').removeClass('font-choice');
+//
+//   });
+// });
+  // $(document).ready(function(){
   //   var changedDiv;
-  //   function changeBG(theNode){
+  //   var changeBG = function(theNode){
   //     if (changedDiv){
   //       changedDiv.className = "font-choice";
   //     } else {

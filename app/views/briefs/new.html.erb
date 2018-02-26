@@ -1,8 +1,233 @@
-<br>
-  <div class="container" >
-    <div class="form-group">
-      <h1>Project Briefing Survey</h1>
-      <%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
+
+<%= form_for(:brief, :url => {:controller => 'briefs', :action => 'create'}) do |f| %>
+<!-- Old  -->
+	<div class="container">
+		<header>
+			<h1 class="logo"><img src="" width="85px" height="85px" alt=""></a></h1>
+			<div class="title">
+				<h2>Project Briefing Survey</h2>
+				<p>Client Questionnaire</p>
+
+			</div><br class="clear"/>
+		</header>
+		<article class="questionnaire">
+			<section></section>
+			<section>
+				<!-- <h4>Your Name</h4><input type="text" name="name" value="" />
+				<h4>Your Company Name</h4><input type="text" name="company-name" value="" />
+				<h4>Your Email Address</h4><input type="text" name="email" value="" /> -->
+        <h4>Your Name:</h4><%= f.text_field :name, class: "form-control", type: "text" %>
+        <h4>Your Company Name:</h4><%= f.text_field :company, class: "form-control", type: "text" %>
+        <h4>Your Contact Email:</h4><%= f.text_field :email, class: "form-control", type: "text" %>
+			</section>
+			<section>
+				<h3>About Your Company</h3>
+				<!-- <h4><span>1.</span>Tell us a little bit about your company <input type='hidden' name='data[about][0]' value='Tell us a little bit about your company' /> </h4>
+				<textarea class="medium" name="data[about][1]" placeholder="We want to get an understanding of where your company is at now, what you're trying to achieve and what your main priorities are."></textarea>
+				<h4><span>2.</span>Who is your target audience? <input type='hidden' name='data[target][0]' value='Who is your target audience?' /></h4>
+				<textarea class="medium" name="data[target][1]" placeholder="Every company has an ideal client. The more you can tell us about them, the better your website will perform. Start with age, gender, location, lifestyle, likes and dislikes. From there, include anything else you think might be relevant."></textarea>
+				<h4><span>3.</span>Who are your competitors? <input type='hidden' name='data[competitors][0]' value='Who are your competitors?' /></h4>
+				<textarea class="small" name="data[competitors][1]" placeholder="Mention who your competitors are, and also how you are different to them. What is your unique selling point?"></textarea>
+				<h4><span>4.</span>What is the goal of this website? <input type='hidden' name='data[goal][0]' value='What is the goal of this website?' /></h4>
+				<textarea class="small" name="data[goal][1]" placeholder="If this is your first website, explain what you hope to achieve with it, for example: an increase in sales or to further your brand. If you already have a website, you can mention the strengths and weaknesses of your current website."></textarea>
+				<h4><span>5.</span>Do you have an existing website? <input type='hidden' name='data[existing-site][0]' value='Do you have an existing website?' /></h4>
+				<input type="radio" value="Yes" id="website-yes" name="data[existing-site][1]" ><label for="website-yes">Yes</label>
+				<input type="radio" value="No" id="website-no" name="data[existing-site][1]" ><label for="website-no">No</label>
+				<em>If yes, please enter the full URL below: <input type='hidden' name='data[existing-url][0]' value='If yes, please enter the full URL below:' /></em><br/><br/>
+				<input type="text" value="http://" name="data[existing-url][1]"> -->
+
+        <h4><span>1.</span> Tell us a little bit about your company</h4><%= f.text_area :about_your_company, class: "medium ", autofocus: true, placeholder: "We want to get an understanding of where your company is at now, what you're trying to achieve and what your main priorities are." %> </p>
+        <h4><span>2.</span>Who is your target audience?</h4><%= f.text_area :target_audience, class: "medium ", autofocus: true, placeholder: "Every company has an ideal client. The more you can tell us about them, the better your website will perform. Start with age, gender, location, lifestyle, likes and dislikes. From there, include anything else you think might be relevant."  %> </p>
+        <h4><span>3.</span>Who are your competitors:</h4><%= f.text_field :competitors, class: "small", placeholder: "Mention who your competitors are, and also how you are different to them. What is your unique selling point?" %> </p>
+        <h4><span>4.</span>What is the goal of this website?</h4><%= f.text_field :project_purpose, class: "small", autofocus: true, placeholder:"If this is your first website, explain what you hope to achieve with it, for example: an increase in sales or to further your brand. If you already have a website, you can mention the strengths and weaknesses of your current website." %> </p>
+        <h4><span>5.</span>Do you have an existing website?</h4>
+                <%= radio_button_tag(:existing_site, "yes") %>
+                <%= label_tag(:existing_site, "Yes") %>
+                <%= radio_button_tag(:existing_site, "No") %>
+                <%= label_tag(:existing_site, "No") %>
+                <em>If yes, please enter the full URL below:</em>
+                <%= f.text_field :existing_site, class: "medium ", autofocus: true, placeholder:"https://" %> </p>
+			</section>
+
+			<section>
+				<h3>Design Style Preference</h3>
+
+				<h4><span>6.</span>What is your color scheme preference? <input type='hidden' name='data[color-scheme][0]' value='What is your color scheme preference?' /></h4>
+				<textarea class="small" name="data[color-scheme][1]" placeholder="Please mention if your company already has an established color scheme, or if you have a color in mind for the website, and any colors to avoid."></textarea>
+
+				<h4><span>7.</span>What style of font would you prefer your site to use? <input type='hidden' name='data[font-preference][0]' value='What style of font would you prefer your site to use?' /></h4>
+
+					<script type="text/javascript">
+
+						$(document).ready(function(){
+							var changedDiv;
+
+
+
+							function changeBG(theNode){
+
+							if (changedDiv){
+								changedDiv.className = "font-choice";
+							} else {
+								var selectedDiv = document.getElementById("active-choice");
+								if (selectedDiv) {
+									selectedDiv.className = "font-choice";
+								}
+							}
+
+							theNode.className = "active-choice";
+							changedDiv=theNode;
+							}
+						});
+					</script>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="serif" value="serif" onclick="changeBG(this.parentNode)" >
+						<label for="serif" style="font-family: Georgia, Times, Serif;">Serif</label>
+					</div>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="sans-serif" value="sans-serif" onclick="changeBG(this.parentNode)" >
+						<label for="sans-serif" style="font-family: Arial, sans-serif;">Sans Serif</label>
+					</div>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="script" value="script" onclick="changeBG(this.parentNode)" >
+						<label for="script" style="font-family: 'Pinyon Script', cursive; font-size: 24px;">Script</label>
+					</div>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="geometric" value="geometric" onclick="changeBG(this.parentNode)" >
+						<label for="geometric" style="font-family: 'Century Gothic' Futura, 'Questrial', sans-serif;">Geometric</label>
+					</div>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="grunge" value="grunge" onclick="changeBG(this.parentNode)" >
+						<label for="grunge" style="font-family: 'Special Elite';">Grunge</label>
+					</div>
+
+					<!--Font Choice-->
+					<div class="font-choice">
+						<input type="radio" name="data[font-preference][1]" id="other" value="other" onclick="changeBG(this.parentNode)" >
+						<label for="other" style="font-family: Arial, sans-serif;">Other..</label>
+					</div>
+
+					<input type="text" placeholder="If other, please specify:"><input type="hidden" name="data[font-preference-other][0]" value="" />
+
+				<h4><span>8.</span>What is your design complexity preference? <input type='hidden' name='data[design-complexity][0]' value='What is your design complexity preference?' /></h4>
+
+				<p><em>Websites can range from very minimalist, to very detailed and complex designs. Please tick your preference below:</em></p>
+
+				<div class="options">
+					<input type="radio" name="data[design-complexity][1]" id="1" value="Very Minimal" ><label for="1">Very Minimal</label>
+					<input type="radio" name="data[design-complexity][1]" id="2" value="Minimal" ><label for="2">Minimal</label>
+					<input type="radio" name="data[design-complexity][1]" id="3" value="Balanced" ><label for="3">Balanced</label>
+					<input type="radio" name="data[design-complexity][1]" id="4" value="Complex" ><label for="4">Complex</label>
+					<input type="radio" name="data[design-complexity][1]" id="5" value="Very Complex" ><label for="5">Very Complex</label>
+					<textarea class="small" name="data[design-complexity-comment][1]" placeholder="Anything else you would like to add?"></textarea><input type="hidden" name="data[design-complexity-comment][0]" value="" />
+				</div>
+
+				<h4><span>9.</span>What look and feel do you want your website to have? <input type='hidden' name='data[look-feel][0]' value='What look and feel do you want your website to have?' /></h4>
+				<p><em>Please tick the words and phrases which you think are appropriate to your design preferences</em></p>
+
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Simple" id="tags" ><label for="Simple">Simple</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Complex" id="tags" ><label for="Complex">Complex</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Balanced" id="tags" ><label for="Balanced">Balanced</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Detailed" id="tags" ><label for="Detailed">Detailed</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Strong" id="tags" ><label for="Strong">Strong</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Calm" id="tags" ><label for="Calm">Calm</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Enticing" id="tags" ><label for="Enticing">Enticing</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Unique" id="tags" ><label for="Unique">Unique</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Colorful" id="tags" ><label for="Colorful">Colorful</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Bright" id="tags" ><label for="Bright">Bright</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Muted" id="tags" ><label for="Muted">Muted</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Pastel" id="tags" ><label for="Pastel">Pastel</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Professional" id="tags" ><label for="Professional">Professional</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Fun" id="tags" ><label for="Fun">Fun</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Modern" id="tags" ><label for="Modern">Modern</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Elegant" id="tags" ><label for="Elegant">Elegant</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Vintage" id="tags" ><label for="Vintage">Vintage</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Textured" id="tags" ><label for="Textured">Textured</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Grunge" id="tags" ><label for="Grunge">Grunge</label></div>
+				<div class="tag"><input type="checkbox" name="data[look-feel][1][]" value="Clean" id="tags" ><label for="Clean">Clean</label></div>
+				<br/><br/>
+				<textarea class="small" name="data[look-feel-additional][1]" placeholder="Please share any other terms that will help us understand what you are looking for."></textarea><input type="hidden" name="data[look-feel-additional][0]" value="" />
+
+				<h4><span>10.</span>Do you have any existing ideas or inspiration to share with us? <input type='hidden' name='data[exiting-brand][0]' value='Do you have any existing ideas or inspiration to share with us?' /></h4>
+				<input type="radio" value="Yes" id="website-yes" name="data[existing-brand][1]" ><label for="website-yes">Yes</label>
+				<input type="radio" value="No" id="website-no" name="data[existing-brand][1]" ><label for="website-no">No</label>
+				<em>This could be your logo, or other designs such as stationery, brochures etc.</em><br/><br/>
+				<input type="file" name="file" value="" /> <em>(optional) Upload any relevant files, if you have more than one file try using a .zip file. <input type='hidden' name='data[file][0]' value='(optional) Upload any relevant files, if you have more than one file try using a .zip file.' /></em>
+
+			</section>
+
+			<section>
+				<h3>Design Examples</h3>
+
+				<h4><span>11.</span>Which existing websites do you particularly admire and why? <input type='hidden' name='data[good-websites][0]' value='Which existing websites do you particularly admire and why?' /></h4>
+					<p><em>Please list 3 existing websites that you like, and what you think works well on them:</em></p>
+
+					<input type="text" value="http://" name="data[good-websites-1][0]">
+					<textarea class="small" name="data[good-websites-1][1]" placeholder="What do you like about this site?"></textarea><br/><br/>
+
+					<input type="text" value="http://" name="data[good-websites-2][0]" >
+					<textarea class="small" name="data[good-websites-2][1]" placeholder="What do you like about this site?"></textarea><br/><br/>
+
+					<input type="text" value="http://" name="data[good-websites-3][0]">
+					<tag></tag><textarea class="small" name="data[good-websites-3][1]" placeholder="What do you like about this site?"></textarea><br/><br/>
+
+				<h4><span>12.</span>Which existing websites do you NOT like, and why? <input type='hidden' name='data[bad-websites][0]' value='Which existing websites do you NOT like, and why?' /></h4>
+					<p><em>Please list 3 existing websites that you don't like, and what you don't like about them:</em></p>
+
+					<input type="text" value="http://" name="data[bad-websites-1][0]">
+					<textarea class="small" name="data[bad-websites-1][1]" placeholder="What do you dislike about this site?"></textarea><br/><br/>
+
+					<input type="text" value="http://" name="data[bad-websites-2][0]">
+					<textarea class="small" name="data[bad-websites-2][1]" placeholder="What do you dislike about this site?"></textarea><br/><br/>
+
+					<input type="text" value="http://" name="data[bad-websites-3][0]">
+					<textarea class="small" name="data[bad-websites-3][1]" placeholder="What do you dislike about this site?"></textarea><br/><br/>
+
+			</section>
+
+			<section>
+				<h3>Additional Information</h3>
+
+				<h4><span>13.</span>Please use this section for any additional comments you would like to us to note: <input type='hidden' name='data[more-info][0]' value='Please use this section for any additional comments you would like to us to note:' /></h4>
+
+				<textarea class="medium" name="data[more-info][1]"></textarea>
+
+			</section>
+			<section>
+
+				<h4><span>14.</span>Please enter the code supplied to you when you were sent to this form:</h4>
+				<p><input type="text" name="captcha_answer" value="" />
+			</p>
+				<input type="submit" value="Send Form">
+			</section>
+
+		</article>
+		</form>
+
+
+
+
+	</div><!--.container-->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5f89b90b00","applicationID":"6889378","transactionName":"YFBVYUtQWEVTUhFYV1kaYkdQHlREW1QDWFZQGl5bXVROGEJZFQ==","queueTime":0,"applicationTime":2,"atts":"TBdWFwNKS0s=","errorBeacon":"bam.nr-data.net","agent":"js-agent.newrelic.com\/nr-632.min.js"}</script></body>
+</html>
+
+
+
+
+
+
+Rails
           <br><h3>Client Questionnaire</h3>
           <section>
             <p> Your Name:</br> <%= f.text_field :name, class: "form-control" %> </p>
@@ -40,73 +265,19 @@
   <h4><span>7.</span>What style of font would you prefer your site to use? <input type='hidden' name='data[font-preference][0]' value='What style of font would you prefer your site to use?' /></h4>
 <script type="text/javascript">
   $(document).ready(function(){
-    $('.bottomBox').on('click', function(){
-      console.log('is this working');
-      $('.bottomBox').addClass('cell2').removeClass('cell1');
+  //   $('.bottomBox').on('click', function(){
+  //     console.log('is this working');
+  //     $('.bottomBox').addClass('cell2').removeClass('cell1');
+  //
+  //   });
+  $('.font-choice').on('click', function(){
+    console.log('is this working');
+    $(this).addClass('active-choice').removeClass('font-choice');
 
-    });
   });
+
+
+
+  });
+
 </script>
-
-
-
-  <!-- <script type="text/javascript">
-  $(document).ready(function(){
-    var changedDiv;
-
-    function changeBG(theNode){
-
-    if (changedDiv){
-      changedDiv.className = "font-choice";
-    } else {
-      var selectedDiv = document.getElementById("active-choice");
-      if (selectedDiv) {
-        selectedDiv.className = "font-choice";
-      }
-    }
-
-    theNode.className = "active-choice";
-    changedDiv=theNode;
-    }
-
-  });
-
-  </script> -->
-
-  <!--Font Choice-->
-  <div class="font-choice bottomBox cell1">
-    <span style="display:none"><input type="radio" class="cell1" name="data[font-preference][1]" id="serif" value="serif" ></span>
-    <label for="serif" style="font-family: Georgia, Times, Serif;">Serif</label>
-  </div>
-
-  <!--Font Choice-->
-  <div class="font-choice">
-    <input type="radio" name="data[font-preference][1]" id="sans-serif" value="sans-serif" onclick="changeBG(this.parentNode)" >
-    <label for="sans-serif" style="font-family: Arial, sans-serif;">Sans Serif</label>
-  </div>
-
-  <!--Font Choice-->
-  <div class="font-choice">
-    <input type="radio" name="data[font-preference][1]" id="script" value="script" onclick="changeBG(this.parentNode)" >
-    <label for="script" style="font-family: 'Pinyon Script', cursive; font-size: 24px;">Script</label>
-  </div>
-
-  <!--Font Choice-->
-  <div class="font-choice">
-    <input type="radio" name="data[font-preference][1]" id="geometric" value="geometric" onclick="changeBG(this.parentNode)" >
-    <label for="geometric" style="font-family: 'Century Gothic' Futura, 'Questrial', sans-serif;">Geometric</label>
-  </div>
-
-  <!--Font Choice-->
-  <div class="font-choice">
-    <input type="radio" name="data[font-preference][1]" id="grunge" value="grunge" onclick="changeBG(this.parentNode)" >
-    <label for="grunge" style="font-family: 'Special Elite';">Grunge</label>
-  </div>
-
-  <!--Font Choice-->
-  <div class="font-choice">
-    <input type="radio" name="data[font-preference][1]" id="other" value="other" onclick="changeBG(this.parentNode)" >
-    <label for="other" style="font-family: Arial, sans-serif;">Other..</label>
-  </div>
-
-  <input type="text" placeholder="If other, please specify:"><input type="hidden" name="data[font-preference-other][0]" value="" />
